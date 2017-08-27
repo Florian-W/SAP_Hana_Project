@@ -208,30 +208,31 @@ angular.module('litter', [
 
 
 $(document).ready(function() {
-
-	$(".dropdown-menu").on('click', 'li a', function(){
-		$(this).closest(".dropdown-menu").prev().html($(this).html() + ' <span class="caret"/>');
-		$(this).closest(".input-group-btn").next(".form-control").remove();
-		//TODO: remove other fields apart from the standard form-control input field without removing the dropdown menu -> make line above more flexible?
-	$(this).closest(".dropdown-menu").prev().val($(this).text());
-		
-			var chosen = $(this).text();
-		$inputField = $('<input class="form-control" aria-describedby="doiAddon" type="text">');
-		$(this).closest(".input-group-btn")
-			.after($inputField);
-		$inputField.attr("placeholder", chosen)
-			.attr('data-type', $(this).text())
-			.data('type', $(this).text()); //re-adding input field here
-
-		switch (chosen) {
-			case 'URL':
-				var newInputGroup = $(this).closest(".input-group")
-					.append('<span class="input-group-addon">Date</span>')
-					.append('<input class="form-control" aria-describedby="doiAddon" placeholder="Date" type="date"></div>'); //adding date label and field here
-			break;
-		}
+    	$(".dropdown-menu").on('click', 'li a', function(){
+			$(this).closest(".dropdown-menu").prev().html($(this).html() + ' <span class="caret"/>');
+			$(this).closest(".input-group")
+				.find(".form-control, .input-group-addon").remove();
+			//TODO: remove other fields apart from the standard form-control input field without removing the dropdown menu -> make line above more flexible?
+			$(this).closest(".dropdown-menu").prev().val($(this).text());
 			
-		$(this).parents(".input-group-btn").next().attr('data-type', $(this).text()).data('type', $(this).text()).attr("value", "");
+			var chosen = $(this).text();
+			$inputField = $('<input class="form-control" aria-describedby="doiAddon" type="text">');
+			$(this).closest(".input-group-btn")
+				.after($inputField);
+			$inputField.attr("placeholder", chosen)
+				.attr('data-type', $(this).text())
+				.data('type', $(this).text()); //re-adding input field here
+
+			switch (chosen) {
+				case 'URL':
+					var newInputGroup = $(this).closest(".input-group")
+						.append('<span class="input-group-addon">Date</span>')
+						.append('<input class="form-control" aria-describedby="doiAddon" placeholder="Date" type="date"></div>'); //adding date label and field here
+				break;
+			}
+				
+			
+			$(this).parents(".input-group-btn").next().attr('data-type', $(this).text()).data('type', $(this).text()).attr("value", "");
    });
    
    // ISBN Formatting 
