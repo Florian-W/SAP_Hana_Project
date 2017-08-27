@@ -4,14 +4,23 @@
   "description": "A literature management software for BibLaTeX",
   "main": "index.js",
   "scripts": {
-    "postinstall:bower": "bower install",
-    "postinstall:babelNode": "babel src --ignore static --out-dir build",
-    "postinstall:babelBrowser": "babel src/static/js --out-dir build/static/js --no-babelrc",
-    "postinstall:css": "postcss src/static/css/**/*.css -d build/static/css -b",
-    "postinstall:img": "cpy 'src/**/*.*' '!src/**/*.@(js^|css)' build --parents",
+	"check": "npm run check:js",
+	"check:js": "jshint",
+    "build": "npm run build:bower && npm run build:babelNode && npm run build:babelBrowser && npm run build:css",
+    "build:bower": "bower install",
+    "build:babelNode": "babel src --ignore static --out-dir build",
+    "build:babelBrowser": "babel src/static/js --out-dir build/static/js --no-babelrc",
+    "build:css": "postcss src/static/css/**/*.css -d build/static/css -b",
+    "build:img": "cpy 'src/**/*.*' '!src/**/*.@(js^|css)' build --parents",
+	"localbuild": " parallelshell \"npm run localbuild:babelNode\" \"npm run localbuild:babelBrowser\" & \"npm run localbuild:css\"",
+	"localbuild:babelNode": "babel src --ignore static --watch --out-dir build",
+    "localbuild:babelBrowser": "babel src/static/js --watch --out-dir build/static/js --no-babelrc",
+    "localbuild:css": "postcss src/static/css/**/*.css --watch -d build/static/css -b",
+	"prebuild": "npm run check",
     "test": "mocha -t 1000",
     "start": "node index.js",
-    "localrun": "npm install && npm run postinstall:bower && npm run postinstall:babelNode && npm run postinstall:babelBrowser && npm run postinstall:css && npm run start"
+    "localrun": "parallelshell \"npm run localbuild\" \"npm run start\"",
+	"postinstall": "npm run build"
   },
   "engines": {
     "node": "^6.10.0"
@@ -39,6 +48,7 @@
     "chai": "^4.1.0",
     "jshint": "^2.9.5",
     "mocha": "^3.4.2",
+    "parallelshell": "^3.0.1",
     "protractor": "^5.1.2"
   },
   "dependencies": {

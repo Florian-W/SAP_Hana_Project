@@ -2,7 +2,7 @@
 	<div class="row"  data-ng-app="litter" data-ng-controller="litterCtrl" class="ng-scope">
 		<div class="col-md-3 col-xs-3">
 			<div class="list-group scrollable nospace">
-				<a data-ng-repeat="(key, value) in myObj" data-select="{{value.entry_key}}" class="list-group-item {{isActive(value)}}">
+				<a data-ng-repeat="(key, value) in DB" data-ng-click="setCurrent(key)" data-select="{{value.entry_key}}" draggable="true" data-ng-dragstart="dragListener(key, $event)" class="list-group-item {{isActive(value)}}">
 					<h4 class="list-group-item-heading">{{printAuthorTitle(value)}}</h4>
 					<p class="list-group-item-text">{{printCitation(value)}}</p>
 				</a>
