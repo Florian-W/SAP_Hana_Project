@@ -288,8 +288,8 @@ app.use('/', function(req, res, next){
 	conf.logins = Object.keys(login.extensions);
 	if(req.path == '/' || req.path == '/index.html') 
 		req.session.reload(function(err) {
-			if(!(err) && req.session.email !== undefined) res.render('sites/overview.ejs', conf);
-			else res.render('sites/index.ejs', conf);
+			if(!(err) && req.session.email === undefined) res.render('sites/overview.ejs', conf);
+			else res.render('sites/overview.ejs', conf);
 		});
 	else return next();
 });
