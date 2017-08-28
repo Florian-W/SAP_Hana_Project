@@ -33,11 +33,15 @@
 	litterGroups[makeDirectiveTitle(['ng', 'group', groupKey])] = [function(){
 		var result = {
 			restrict: "C",
-			template: 	"<div class=\"col-md-2 col-xs-2\"><label class=\"control-label\" for=\"Identifier\">" + (!!groupValue.$name ? groupValue.$name : "") + "</label></div><div class=\"col-md-10 col-xs-10 input-group\">"
+			template: 	"<label class=\"form-control-label\" for=\"Identifier\">" + (!!groupValue.$name ? groupValue.$name : "") + "</label><div class=\"form-group\">"
 		};
 		angular.forEach(groupValue, (elementValue, elementKey) => {
 			if (elementKey[0] == "$") return;
-			result.template += 	"<div class=\"input-group ng-element-" + elementKey + "\"></div>";
+			result.template += 	"<div class=\"input-group ng-element-" + elementKey + "\" ";
+			if (!!elementValue.multi) {
+				result.template += 	"data-ng-init=\"DB[current].fields." + elementKey + " = DB[current].fields." + elementKey + " || []\" data-ng-repeat=\"(key, value) in DB[current].fields." + elementKey + "\"";
+			}
+			result.template += 	"></div>";
 		});
 		
 		result.template += "</div>";
@@ -57,12 +61,15 @@
 			
 			litterDirectives[makeDirectiveTitle(['ng', 'element', elementKey])] = ['$rootScope',
 				function($rootScope) {
+					var path;
+					if (_conf.multi) path = "value.text";
+					else path = "DB[current].fields." + elementKey;
 					var result = {
 						restrict: "C"
 					};
 					switch (_conf.type){
 						case "date":
-							result.template = "<span class=\"input-group-addon\">";
+							result.template = "<span class=\"col col-sm-2 input-group-addon\">";
 							result.template += _conf.title + "</span><input type=\"date\" class=\"form-control\" aria-describedby=\"dateHelp\"/>";
 							_conf.timespan && (result.template += "<span class=\"input-group-addon\">To</span><input type=\"date\" class=\"form-control\" aria-describedby=\"dateHelp\" id=\"toDate\" />");
 						break;
@@ -70,25 +77,25 @@
 							let _option = makeDirectiveTitle(['option', elementKey]);
 							let _select = makeDirectiveTitle(['select', elementKey])
 							let _path = "conf." + groupKey + "." + elementKey + ".options";
-							result.template = "<span class=\"input-group-addon\">";
+							result.template = "<span class=\"col col-sm-2 input-group-addon\">";
 							result.template += _conf.title + "</span><select class=\"form-control\"  ng-options=\"" + _option + ".key as " + _option + ".name for " + _option + " in " + _path + " track by " + _option + ".key\" ng-model=\"" + _select + "\"></select>";
 						break;
 						case "integer":
-							result.template = "<span class=\"input-group-addon\">";
+							result.template = "<span class=\"col col-sm-2 input-group-addon\">";
 							result.template+= _conf.title + "</span><input type=\"number\" class=\"form-control\" aria-describedby=\"doiAddon\" />";
 						break;
 						case "range":
-							result.template = "<span class=\"input-group-addon\">";
+							result.template = "<span class=\"col col-sm-2 input-group-addon\">";
 							result.template+= _conf.title + "</span><input type=\"number\" class=\"form-control\" aria-describedby=\"dateHelp\"/><span class=\"input-group-addon\">To</span><input type=\"number\" class=\"form-control\" aria-describedby=\"dateHelp\" id=\"toDate\" />";
 						break;
 						case "name": 
-							result.template = "<span class=\"input-group-addon\">";
-							result.template += _conf.title + "</span><input type=\"text\" class=\"form-control\" placeholder=\"Nachname\" aria-describedby=\"dateHelp\"/><input type=\"text\" class=\"form-control\" placeholder=\"Vorname\" aria-describedby=\"dateHelp\"/>";
+							result.template = "<span class=\"col col-sm-2 input-group-addon\">";
+							result.template += _conf.title + "</span><input type=\"text\" class=\"form-control\" placeholder=\"Nachname\" aria-describedby=\"dateHelp\"/><span class=\"form-liner input-group-addon\"></span><input type=\"text\" class=\"form-control\" placeholder=\"Vorname\" aria-describedby=\"dateHelp\"/>";
 							break;
 						default:
-							result.template = "<span class=\"input-group-addon\">" + _conf.title +"</span><input type=\"text\" value=\"{{item.fields."+ elementKey +"}}\" class=\"form-control\" aria-describedby=\"doiAddon\" />";
+							result.template = "<span class=\"col col-sm-2 input-group-addon\">" + _conf.title +"</span><input type=\"text\" data-ng-model=\"" + path + "\" class=\"form-control\" aria-describedby=\"doiAddon\" />";
 					}
-					if (_conf.multi) result.template += "<button class=\"btn btn-default\" type=\"button\"><span class=\"fa fa-plus\"></span></button>";
+					if (_conf.multi) result.template += " <span class=\"input-group-btn\"><button class=\"btn btn-default\" data-ng-click=\"addItem('" + elementKey + "')\" type=\"button\"><span class=\"fa fa-plus\"></span>&nbsp;</button></span>";
 					return result;
 				}
 			];
@@ -101,7 +108,7 @@
 			template: ""
 		};
 		angular.forEach(conf, (groupValue, groupKey) => {
-			result.template += "<div class=\"form-group row ng-group-" + groupKey + "\"></div>";
+			result.template += "<div class=\"form-control row ng-group-" + groupKey + "\"></div>";
 		});
 		return result;
 	});

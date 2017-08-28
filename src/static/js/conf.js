@@ -7,7 +7,8 @@ const conf = {
 			},
 		"editor": {
 			"title": "Editor",
-			"type": "name"
+			"type": "name",
+			"multi": true
 			},
 		"date": {
 			"type": "date",
@@ -247,7 +248,8 @@ const conf = {
 			},
 		"publisher": {
 			"title": "Verlag",
-			"type": "text"
+			"type": "text",
+			"multi": true
 			},
 		"pubstate": {
 			"title": "Publikationsstatus",
@@ -273,7 +275,8 @@ const conf = {
 			},
 		"isbn": {
 			"title": "ISBN",
-			"type": "text"
+			"type": "text",
+			"multi": true
 			},
 		"ismn": {
 			"title": "ISMN",

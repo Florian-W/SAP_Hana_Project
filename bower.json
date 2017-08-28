@@ -23,7 +23,7 @@
   "dependencies": {
     "angular": "^1.6.5",
     "ngstorage": "^0.3.11",
-    "bootstrap": "^3.3.7",
+    "bootstrap": "v4.0.0-alpha.6",
     "jquery": "^3.2.1",
     "tether": "^1.4.0",
     "bootstrap-social": "^5.1.1"

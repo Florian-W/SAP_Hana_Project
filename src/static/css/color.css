@@ -1,0 +1,65 @@
+:root {
+	--primary: 	#DB1653;
+	--stress: 	#F54E19;
+	--alt-primary: 	#F29B1E;
+	--stress2: #F2D821;
+	--primary-stress: #82F21F;
+	--gray25: #3F3F3F;
+	--gray50: #7F7F7F;
+	--gray75: #BFBFBF;
+	--gray95: #F2F2F2;
+}
+
+.navbar {
+	background-color: var(--primary);
+	border-color: var(--primary);
+	height: 55px;
+}
+
+.navbar-brand {
+	background-color: inherit;
+	background-image: url('/img/logo.svg');
+	margin-left: 15px;
+}
+
+.login-btn {
+	background-color: var(--primary);
+	border-color: white;
+	border-width: medium;
+	color: white !important;
+}
+
+.list-group-item.active, .list-group-item.active:hover{
+	background-color: var(--gray75);
+	border-color: var(--gray75);
+	color: black;
+}
+
+.list-group-item:hover:not(.active){
+	background-color: var(--gray95);
+	border-color: var(--gray95);
+	color: black;
+}
+
+.list-group-item  .list-group-item-text, .list-group-item:active  .list-group-item-text{
+	color: var(--gray25) !important;
+}
+
+.input-group-addon {
+	background-color: var(--gray95);
+	border-color: var(--gray75);
+}
+
+.form-control:focus {
+	border-color: var(--stress2);
+	box-shadow: inset 0 1px 1px rgba(255,153,17 ,.075), 0 0 8px rgba(255,221,34,.6)
+}
+
+::-webkit-input-placeholder{
+	color: var(--gray75) !important;
+}
+
+.control-label {
+    float: right;
+    padding-right: 1em;
+}

@@ -12,7 +12,7 @@
     "build:babelBrowser": "babel src/static/js --out-dir build/static/js --no-babelrc",
     "build:css": "postcss src/static/css/**/*.css -d build/static/css -b",
     "build:img": "cpy 'src/**/*.*' '!src/**/*.@(js^|css)' build --parents",
-	"localbuild": " parallelshell \"npm run localbuild:babelNode\" \"npm run localbuild:babelBrowser\" & \"npm run localbuild:css\"",
+	"localbuild": " parallelshell \"npm run localbuild:babelNode\" \"npm run localbuild:babelBrowser\" \"npm run localbuild:css\"",
 	"localbuild:babelNode": "babel src --ignore static --watch --out-dir build",
     "localbuild:babelBrowser": "babel src/static/js --watch --out-dir build/static/js --no-babelrc",
     "localbuild:css": "postcss src/static/css/**/*.css --watch -d build/static/css -b",

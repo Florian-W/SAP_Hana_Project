@@ -24,12 +24,10 @@
 }
 
 .image {
-	max-width: 960px;
 	background-image: url(https://twistedsifter.files.wordpress.com/2016/07/dulmen_bornste_waldweg.jpg);
 	background-size: 100%;
 	background-repeat: no-repeat;
 	margin: auto;
-	height: 400px;
 }
 
 #firstlvl {
@@ -61,8 +59,6 @@ margin-bottom: 25px;
 	padding: 10px;
 }
 
-body { padding-top: 70px; }
-
 .scrollable {
 	height: -webkit-fill-available;
 	height: -moz-available;
@@ -71,10 +67,10 @@ body { padding-top: 70px; }
 
 .scrollable.nospace {
 	margin-bottom: 0px;
-	margin-top: -20px;
+	margin-top: 0px;
 }
 
-.col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, 
+/*.col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, 
 .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, 
 .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, 
 .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, 
@@ -85,7 +81,24 @@ body { padding-top: 70px; }
 	padding-left: 0px;
 	padding-right: 0px;
 }
+*/
+.form-liner{
+	width: 0px;
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+}
 
 .add-input {
 	cursor: pointer;
+}
+
+.input-group .form-control{
+	flex-direction: row !important;
+}
+
+.float-right{
+	margin-right: 15px;
+    position: absolute;
+    right: 0px;
 }

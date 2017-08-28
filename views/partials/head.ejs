@@ -33,11 +33,17 @@ function capitalizeFirstLetter(string) {
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+	<!-- Google Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
+	
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.min.css" async>
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css" async>
 	<link rel="stylesheet" href="/lib/bootstrap-social/bootstrap-social.css" async>
+	
+	<!-- Custom Stylesheets -->
 	<link rel="stylesheet" href="/css/mockup.css" async>
+	<link rel="stylesheet" href="/css/color.css" async>
 
 	<!-- jQuery first, then Tether, then Bootstrap JS. -->
 	<script src="/lib/jquery/dist/jquery.min.js"></script>
@@ -60,8 +66,8 @@ function capitalizeFirstLetter(string) {
 		var logins = JSON.parse('<%- JSON.stringify(logins); %>');
 		
 		$(document).ready(function() {
-			if (window.localStorage.loggedIn != "true") $('#login').toggleClass('hidden');
-			else $('#logout').toggleClass('hidden');
+			if (window.localStorage.loggedIn != "true") $('#login').toggleClass('d-none');
+			else $('#logout').toggleClass('d-none');
 			
 			$('#logout').on('click', function(event){
 				event.preventDefault();
@@ -93,8 +99,8 @@ function capitalizeFirstLetter(string) {
   <div id="pageContainer" class="container-fluid">
 	<nav class="nav navbar navbar-default navbar-fixed-top container-fluid">
 		<a class="navbar-brand" href="/"></a>
-		<div class="btn-nav pull-right">
-			<button id="login" type="button" class="hidden btn navbar-btn login-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		<div class="btn-nav float-right">
+			<button id="login" type="button" class="d-none btn navbar-btn login-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				Login
 			</button>
 			<div class="dropdown-menu pull-right login-dropdown">
@@ -105,7 +111,7 @@ function capitalizeFirstLetter(string) {
 					</a>
 				 <% }); %>
 			</div>
-			<button id="logout" type="button" class="hidden btn navbar-btn login-btn">
+			<button id="logout" type="button" class="d-none btn navbar-btn login-btn">
 				Logout
 			</button>
 		</div>

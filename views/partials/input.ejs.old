@@ -1,0 +1,276 @@
+
+<div class="container">
+	<form class="">	
+		<div class="form-group row" id="Title">
+			<div class=" col-md-2 col-xs-2">
+				<label class="control-label" for="Title">Title</label>
+			</div>
+			<div class="col-md-10 col-xs-10 input-group">
+				<div class="input-group">
+					<div class="input-group-btn">
+						<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Title <span class="caret"/>
+						</button>
+						<ul class="dropdown-menu">
+							<li>
+								<a href="#">Title</a>
+							</li>
+							<li>
+								<a href="#">Subtitle</a>
+							</li>
+							<li>
+								<a href="#">Journal Title</a>
+							</li>
+							<li>
+								<a href="#">Journal Subtitle</a>
+							</li>
+						</ul>
+					</div>
+					<!-- /btn-group -->
+					<input type="text" class="form-control" placeholder="Title" aria-describedby="doiAddon" />
+				</div>
+				<a>
+					<div class="panel panel-default">
+						<div class="panel-body add-input">
+							<span class="fa fa-plus"></span> Add Title Information
+						</div>
+					</div>
+				</a>
+			</div>
+		</div>
+		<div class="form-group row" id="Author">
+			<div class=" col-md-2 col-xs-2">
+				<label class="control-label" for="Author">Author</label>
+			</div>
+			<div class="col-md-10 col-xs-10 input-group">
+				<div class="input-group">
+					<span class="input-group-addon" id="basic-addon1">Author</span>
+					<input type="text" class="form-control" placeholder="Title" aria-describedby="doiAddon" />
+				</div>
+			</div>
+		</div>
+		<div class="form-group row" id="Date">
+			<div class=" col-md-2 col-xs-2">
+				<label class="control-label" for="Date">Date</label>
+			</div>
+			<div class="col-md-10 col-xs-10 input-group">
+				<div class="input-group">
+					<span class="input-group-addon" id="basic-addon1">From</span>
+					<input type="date" class="form-control" aria-describedby="dateHelp" id="fromDate" required />
+					<span class="input-group-addon" id="basic-addon2">To</span>
+					<input type="date" class="form-control" aria-describedby="dateHelp" id="toDate" />
+				</div>
+			</div>
+		</div>
+		<div class="form-group row" id="Identifier">
+			<div class=" col-md-2 col-xs-2">
+				<label class="control-label" for="Identifier">Identifier</label>
+			</div>
+			<div class="col-md-10 col-xs-10 input-group">
+				<div class="input-group">
+					<div class="input-group-btn">
+						<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">ISBN <span class="caret"/>
+						</button>
+						<ul class="dropdown-menu">
+							<li>
+								<a href="#" data-value="doi">DOI</a>
+							</li>
+							<li>
+								<a href="#" data-value="isbn">ISBN</a>
+							</li>
+							<li>
+								<a href="#" data-value="issn">ISSN</a>
+							</li>
+							<li>
+								<a href="#" data-value="eid">E-ID</a>
+							</li>
+						</ul>
+					</div>
+					<!-- /btn-group -->
+					<input type="text" class="form-control" placeholder="Identifier" aria-describedby="doiAddon" />
+				</div>
+				<div class="input-group">
+					<div class="input-group-btn">
+						<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">DOI <span class="caret"/>
+						</button>
+						<ul class="dropdown-menu">
+							<li>
+								<a href="#" data-value="doi">DOI</a>
+							</li>
+							<li>
+								<a href="#" data-value="isbn">ISBN</a>
+							</li>
+							<li>
+								<a href="#" data-value="issn">ISSN</a>
+							</li>
+							<li>
+								<a href="#" data-value="eid">E-ID</a>
+							</li>
+						</ul>
+					</div>
+					<!-- /btn-group -->
+					<input type="text" class="form-control" data-type="DOI" placeholder="Identifier" aria-describedby="doiAddon" />
+				</div>
+				<a>
+					<div class="panel panel-default">
+						<div class="panel-body add-input">
+							<span class="fa fa-plus"></span> Add Identifier
+						</div>
+					</div>
+				</a>
+			</div>
+		</div>
+		<div class="form-group row" id="Personas">
+			<div class=" col-md-2 col-xs-2">
+				<label class="control-label" for="Personas">Personas</label>
+			</div>
+			<div class="col-md-10 col-xs-10 input-group">
+				<div class="input-group">
+					<div class="input-group-btn">
+						<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Editor <span class="caret"/>
+						</button>
+						<ul class="dropdown-menu">
+							<li>
+								<a href="#">Editor</a>
+							</li>
+							<li>
+								<a href="#">Compiler</a>
+							</li>
+							<li>
+								<a href="#">Founder</a>
+							</li>
+							<li>
+								<a href="#">Continuator</a>
+							</li>
+							<li>
+								<a href="#">Redactor</a>
+							</li>
+							<li>
+								<a href="#">Reviser</a>
+							</li>
+							<li>
+								<a href="#">Collaborator</a>
+							</li>
+							<li role="separator" class="divider"/>
+							<li>
+								<a href="#">Translator</a>
+							</li>
+							<li>
+								<a href="#">Annotator</a>
+							</li>
+							<li>
+								<a href="#">Commentator</a>
+							</li>
+						</ul>
+					</div>
+					<!-- /btn-group -->
+					<input type="text" class="form-control" placeholder="Persona" aria-describedby="doiAddon" />
+				</div>
+				<a>
+					<div class="panel panel-default">
+						<div class="panel-body add-input">
+							<span class="fa fa-plus"></span> Add Persona
+						</div>
+					</div>
+				</a>
+			</div>
+		</div>
+		<div class="form-group row" id="Periodical">
+			<div class=" col-md-2 col-xs-2">
+				<label class="control-label" for="Periodical">Periodical</label>
+			</div>
+			<div class="col-md-10 col-xs-10 input-group">
+				<div class="input-group">
+					<div class="input-group-btn">
+						<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Editor <span class="caret"/>
+						</button>
+						<ul class="dropdown-menu">
+							<li>
+								<a href="#">Issue</a>
+							</li>
+							<li>
+								<a href="#">Issuetitle</a>
+							</li>
+							<li>
+								<a href="#">Issue Subtitle</a>
+							</li>
+							<li>
+								<a href="#">Volume</a>
+							</li>
+							<li>
+								<a href="#">Number</a>
+							</li>
+						</ul>
+					</div>
+					<!-- /btn-group -->
+					<input type="text" class="form-control" placeholder="Periodical Information" aria-describedby="doiAddon" />
+				</div>
+				<a>
+					<div class="panel panel-default">
+						<div class="panel-body add-input">
+							<span class="fa fa-plus"></span> Add Periodical Information
+						</div>
+					</div>
+				</a>
+			</div>
+		</div>
+		<div class="form-group row" id="Other">
+			<div class=" col-md-2 col-xs-2">
+				<label class="control-label" for="Other">Other</label>
+			</div>
+			<div class="col-md-10 col-xs-10 input-group">
+				<div class="input-group">
+					<div class="input-group-btn">
+						<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Editor <span class="caret"/>
+						</button>
+						<ul class="dropdown-menu">
+							<li>
+								<a href="#">URL</a>
+							</li>
+							<li>
+								<a href="#">Language</a>
+							</li>
+							<li>
+								<a href="#">Original Language</a>
+							</li>
+							<li>
+								<a href="#">Electronic Publishing Information</a>
+							</li>
+							<li>
+								<a href="#">Publication State</a>
+							</li>
+						</ul>
+					</div>
+					<!-- /btn-group -->
+					<input type="text" class="form-control" placeholder="Other" aria-describedby="doiAddon" />
+				</div>
+				<a>
+					<div class="panel panel-default">
+						<div class="panel-body add-input">
+							<span class="fa fa-plus"></span> Add Other Information
+						</div>
+					</div>
+				</a>
+			</div>
+		</div>
+		<div class="form-group row" id="Other">
+			<div class=" col-md-2 col-xs-2">
+				<label class="control-label" for="Notes">Notes</label>
+			</div>
+			<div class="col-md-10 col-xs-10 input-group">
+				<textarea class="form-control" id="note" rows="3">
+				</textarea>
+			</div>
+		</div>
+
+
+
+		<!--
+							<option value="catalan">Catalan (Spain, France, Andorra, Italy)</option>
+							<option value="croatian">Croatian (Croatia, Bosnia and Herzegovina, Serbia)</option>
+							<option value="czech">Czech (Czech Republic)</option>
+							<option value="danish">Danish (Denmark)</option>
+							<option value="dutch">Dutch (Netherlands)</option>
+							<option value="english">English (USA)</option>
+							<option>....</option>
+-->
+<div class="container" data-ng-init="element = DB[current]">
